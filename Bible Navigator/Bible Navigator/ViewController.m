@@ -17,7 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self getData];
+    [self gtData];
     self.bookTitles = NSMutableArray.new;
     Bible *bookTitle = Bible.new;
     //have to put the data from the JSON HERE
@@ -29,16 +29,30 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Key"];
     
 }
--(void) getData{
+-(void) gtData{
    /* NSString *path = [[NSBundle mainBundle] pathForResource:@"BibleJson" ofType:@"json"];
     NSString *jsonString = [[NSString alloc] initWithContentsOfFile:path encoding:NSUTF8StringEncoding error:nil];
     
-    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];*/
+    NSData *jsonData = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     NSError *jsonError;
     NSData *bookData = [[NSData alloc] initWithContentsOfFile:@"../../../BibleJson.json"];
     NSDictionary *allKeys = [NSJSONSerialization JSONObjectWithData:bookData options:NSJSONReadingAllowFragments error:&jsonError];
     
-    NSLog(@"%@", allKeys);
+    NSLog(@"%@", allKeys);*/
+    NSLog(@"Getting the names");
+     NSURL *url = [NSURL URLWithString: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
+     [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+     NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+     NSLog(@"Book Information: %@", book);
+     NSError *er;
+     NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
+     if (er)
+     {
+     NSLog(@"The process of getting bible verses failed: %@", er);
+     return;
+     }
+     
+     }] resume];
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
