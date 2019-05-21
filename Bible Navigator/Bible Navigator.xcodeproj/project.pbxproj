@@ -15,6 +15,9 @@
 		537DBC552294A3DC0068376C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC542294A3DC0068376C /* main.m */; };
 		537DBC5F2294A3DC0068376C /* Bible_NavigatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC5E2294A3DC0068376C /* Bible_NavigatorTests.m */; };
 		537DBC6A2294A3DC0068376C /* Bible_NavigatorUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC692294A3DC0068376C /* Bible_NavigatorUITests.m */; };
+		537DBC792294AE2A0068376C /* Bible.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC782294AE2A0068376C /* Bible.m */; };
+		537DBC7C2294AEA50068376C /* Chapters.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC7B2294AEA50068376C /* Chapters.m */; };
+		537DBC802294B2F10068376C /* BibleJson.json in Resources */ = {isa = PBXBuildFile; fileRef = 537DBC7F2294B2F00068376C /* BibleJson.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		537DBC652294A3DC0068376C /* Bible NavigatorUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Bible NavigatorUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		537DBC692294A3DC0068376C /* Bible_NavigatorUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bible_NavigatorUITests.m; sourceTree = "<group>"; };
 		537DBC6B2294A3DC0068376C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		537DBC772294AE2A0068376C /* Bible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bible.h; sourceTree = "<group>"; };
+		537DBC782294AE2A0068376C /* Bible.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bible.m; sourceTree = "<group>"; };
+		537DBC7A2294AEA50068376C /* Chapters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Chapters.h; sourceTree = "<group>"; };
+		537DBC7B2294AEA50068376C /* Chapters.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Chapters.m; sourceTree = "<group>"; };
+		537DBC7F2294B2F00068376C /* BibleJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BibleJson.json; path = ../../../BibleJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +115,11 @@
 				537DBC492294A3DB0068376C /* ViewController.m */,
 				537DBC4B2294A3DB0068376C /* Main.storyboard */,
 				537DBC4E2294A3DC0068376C /* Assets.xcassets */,
+				537DBC772294AE2A0068376C /* Bible.h */,
+				537DBC782294AE2A0068376C /* Bible.m */,
+				537DBC7A2294AEA50068376C /* Chapters.h */,
+				537DBC7F2294B2F00068376C /* BibleJson.json */,
+				537DBC7B2294AEA50068376C /* Chapters.m */,
 				537DBC502294A3DC0068376C /* LaunchScreen.storyboard */,
 				537DBC532294A3DC0068376C /* Info.plist */,
 				537DBC542294A3DC0068376C /* main.m */,
@@ -237,6 +250,7 @@
 			files = (
 				537DBC522294A3DC0068376C /* LaunchScreen.storyboard in Resources */,
 				537DBC4F2294A3DC0068376C /* Assets.xcassets in Resources */,
+				537DBC802294B2F10068376C /* BibleJson.json in Resources */,
 				537DBC4D2294A3DB0068376C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,8 +276,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				537DBC792294AE2A0068376C /* Bible.m in Sources */,
 				537DBC4A2294A3DB0068376C /* ViewController.m in Sources */,
 				537DBC552294A3DC0068376C /* main.m in Sources */,
+				537DBC7C2294AEA50068376C /* Chapters.m in Sources */,
 				537DBC472294A3DB0068376C /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

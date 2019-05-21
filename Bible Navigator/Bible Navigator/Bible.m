@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  Bible.m
 //  Bible Navigator
 //
 //  Created by Bat-Erdene, Ene on 5/21/19.
 //  Copyright © 2019 Bat-Erdene, Ene. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Bible.h"
 
-@interface ViewController : UITableViewController
-
+@implementation Bible
 
 @end
-
