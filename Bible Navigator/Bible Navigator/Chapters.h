@@ -6,13 +6,14 @@
 //  Copyright © 2019 Bat-Erdene, Ene. All rights reserved.
 //
 
-#import "Bible.h"
+//#import "Bible.h"
+#import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Chapters : Bible
+@interface Chapters : NSObject
 
-@property (strong, nonatomic) NSArray *verse;
+@property (strong, nonatomic) NSMutableArray *verse;
 
 @end
 

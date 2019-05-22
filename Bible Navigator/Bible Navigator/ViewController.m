@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Bible.h"
+#import "Chapters.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) NSMutableArray<Bible *> *bookTitles;
@@ -19,6 +20,7 @@
     [super viewDidLoad];
     [self gtData];
     self.bookTitles = NSMutableArray.new;
+    
     Bible *bookTitle = Bible.new;
     //have to put the data from the JSON HERE
     
@@ -42,14 +44,21 @@
     NSLog(@"Getting the names");
      NSURL *url = [NSURL URLWithString: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
      [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-     NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-     NSLog(@"Book Information: %@", book);
+     //NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+     //NSLog(@"Book Information: %@", book);
      NSError *er;
      NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
      if (er)
      {
      NSLog(@"The process of getting bible verses failed: %@", er);
      return;
+     }
+     NSLog(@"%@", bible);
+     Bible *bookTitle = Bible.new;
+     for (NSDictionary *book in bible)
+     {
+         bookTitle.name = book[@"name"];
+         bookTitle.chapter = [book allKeys];
      }
      
      }] resume];
