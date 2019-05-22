@@ -7,14 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Chapters.h"
+//#import "Chapters.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface Bible : NSObject
 
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSArray *chapter;
 
 @end
 
