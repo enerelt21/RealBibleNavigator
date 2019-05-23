@@ -7,15 +7,17 @@
 //
 
 #import "ViewController.h"
+#import "ChaptersViewController.h"
+#import "VersesViewController.h"
 #import "Bible.h"
-#import "Chapters.h"
 
 @interface ViewController ()
 @property (strong, nonatomic) NSMutableArray<Bible *> *bookTitles;
 @end
 
 @implementation ViewController
-
+-(IBAction)gobackToThisViewController:(UIStoryboardSegue *)sender{
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -27,9 +29,8 @@
     //[self.bookTitles addObject:bookTitle];
     self.navigationItem.title = @"Books";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    
+    //self.tableViewData = [NSDictionary dictionaryWithObjectsAndKeys: self.bookTitles, @"Section1", self.chapterNumbers, @"Section2", self.verseNumbers, @"Section3", nil];
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Titles"];
-    
 }
 -(void) gtData{
    /* NSString *path = [[NSBundle mainBundle] pathForResource:@"BibleJson" ofType:@"json"];
@@ -56,27 +57,25 @@
      }
          
          
-     //NSLog(@"%@", bible);
+     NSLog(@"%@", bible);
     // Bible *bookTitle = Bible.new;
          
      //Bible *tempBible = Bible.new;
      //NSMutableArray <Bible *> *tempStore = [NSMutableArray<Bible *> new];
      self.bookTitles = [NSMutableArray<Bible *> new];
+     //NSMutableArray <NSDictionary *> *tempChapters = [NSMutableArray<NSDictionary *> new];
      for (int i=0; i<[bible count]; i++)
      {
-         Bible *tempBible = Bible.new;
+         //NSMutableArray *tempChapters = [NSMutableArray new];
          NSString *temp = [NSString stringWithFormat:@"%i", i+1];
          NSDictionary *arrayResult = bible[temp];
+
+         Bible *tempBible = Bible.new;
          tempBible.name = [arrayResult objectForKey:@"name"];
-         NSLog (@"%@", tempBible.name);
          [self.bookTitles addObject:tempBible];
      }
          //self.bookTitles = [[NSMutableArray<Bible *> alloc] initWithArray: tempStore];
          //self.bookTitles = tempStore;
-         for (int i=0; i<[self.bookTitles count]; i++)
-         {
-             NSLog(@"%@", self.bookTitles[i].name);
-         }
          //self.bookTitles = tempStore;
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.tableView reloadData];
@@ -101,10 +100,14 @@
      }] resume];
     
 }
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return 3;
-}
+//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+//    return 1;
+    // return [self.tableViewData count];
+//}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    //NSString sectionTitle = [[NSString alloc] stringWithFor]
+    //id sectionInfo = [self.tableViewData objectForKey:[NSString stringWithFormat: @"Section%ld", section+1]];
+    //return [(NSDictionary *) sectionInfo count];
     return self.bookTitles.count;
     //return 67;
 }
@@ -112,18 +115,66 @@
     
 }*/
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+/*
+    if (tableView == self.bookTitles)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Titles" forIndexPath:indexPath];
+        
+        Bible *bookTitle = self.bookTitles[indexPath.row];
+        cell.textLabel.text = bookTitle.name;
+        // NSLog(@"%ld",(long)indexPath.row);
+        return cell;
+        
+    }
+    if (tableView == self.chapterNumbers)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Titles" forIndexPath:indexPath];
+        
+        Bible *bookTitle = self.bookTitles[indexPath.row];
+        id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
+        cell.textLabel.text = bookTitle.name;
+        // NSLog(@"%ld",(long)indexPath.row);
+        return cell;
+    }
+    if (tableView == self.verseNumbers)
+    {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Titles" forIndexPath:indexPath];
+        
+        Bible *bookTitle = self.bookTitles[indexPath.row];
+        id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
+        cell.textLabel.text = bookTitle.name;
+        // NSLog(@"%ld",(long)indexPath.row);
+        return cell;
+ }*/
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Titles" forIndexPath:indexPath];
     
     Bible *bookTitle = self.bookTitles[indexPath.row];
+    //id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
     cell.textLabel.text = bookTitle.name;
     // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
-
+/*
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    switch (section) {
+        case 0:
+            return @"Books";
+            break;
+        case 1:
+            return @"Chapters";
+            break;
+        case 2:
+            return @"Verses";
+            break;
+        default:
+            return nil;
+            break;
+    }
+}*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    
-    
-    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES ];
+    ChaptersViewController *chapController = [[ChaptersViewController alloc] initWithStyle:UITableViewStylePlain];
+    chapController.bookTitle = self.bookTitles[indexPath.row];
+    [[self navigationController] pushViewController:chapController animated:YES];
 }
-
 @end

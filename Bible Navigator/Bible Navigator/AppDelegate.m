@@ -16,6 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    /*ViewController *bibleTableViewController = [[ViewController alloc] initWithStyle:UITableViewStyleGrouped];
+    UINavigationController *graphicsNavController = [[UINavigationController alloc] initWithRootViewController:bibleTableViewController];
+    ViewController.title = @"Bible";*/
     self.window = UIWindow.new;
     [self.window makeKeyAndVisible];
     
