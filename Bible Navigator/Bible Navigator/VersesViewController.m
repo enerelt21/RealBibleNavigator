@@ -71,9 +71,11 @@
             
             Bible *tempBible = Bible.new;
             tempBible.name = [arrayResult objectForKey:@"name"];
-            if (tempBible.name != self.bookTitle.name)
+            if (![tempBible.name isEqualToString:self.bookTitle.name])
+            {
+                //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
                 continue;
-            
+            }
             NSDictionary *chap = NSDictionary.new;
             chap = [arrayResult objectForKey:@"chapters"];
             NSString *verse = [chap objectForKey: self.chapterNumber];
@@ -83,7 +85,7 @@
                 NSString *v =[NSString stringWithFormat:@"%i", j+1];
                 [self.verseNumbers addObject:v];
             }
-            
+            break;
            /* NSArray *tempChapters = NSArray.new;
             tempChapters = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 if ([obj1 integerValue] > [obj2 integerValue]) {
