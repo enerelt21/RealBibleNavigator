@@ -78,8 +78,8 @@
             
             NSDictionary *chap = NSDictionary.new;
             chap = [arrayResult objectForKey:@"chapters"];
-            NSArray *tempChapters;// = NSArray.new;
-            tempChapters = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+            self.chapterNumbers = NSArray.new;
+            self.chapterNumbers = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 if ([obj1 integerValue] > [obj2 integerValue]) {
                     return (NSComparisonResult)NSOrderedDescending;
                 }
@@ -89,11 +89,9 @@
                 }
                 return (NSComparisonResult)NSOrderedSame;
             }];
-            [self.chapterNumbers addObject:tempChapters];
-            
-            for (int j=0;j<[tempChapters count]; j++)
+            for (int j=0;j<[self.chapterNumbers count]; j++)
             {
-                NSLog(@"name:%@   chapters: %@", tempBible.name,tempChapters[j]);
+                NSLog(@"name:%@   chapters: %@", tempBible.name,self.chapterNumbers[j]);
             }
             //for (int i);
         }

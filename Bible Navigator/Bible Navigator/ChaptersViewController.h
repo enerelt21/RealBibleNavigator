@@ -12,7 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ChaptersViewController : UITableViewController
 @property (strong, nonatomic) Bible *bookTitle;
-@property (strong, nonatomic) NSMutableArray *chapterNumbers;
+@property (strong, nonatomic) NSArray *chapterNumbers;
 @end
 
 NS_ASSUME_NONNULL_END

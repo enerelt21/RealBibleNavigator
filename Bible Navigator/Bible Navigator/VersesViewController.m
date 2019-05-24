@@ -77,11 +77,14 @@
             NSDictionary *chap = NSDictionary.new;
             chap = [arrayResult objectForKey:@"chapters"];
             NSString *verse = [chap objectForKey: self.chapterNumber];
-            for (int j=0;j<[verse integerValue];j++)
-                [self.verseNumbers addObject:[NSString stringWithFormat:@"%d", j]];
+            self.verseNumbers = NSMutableArray.new;
+            for (int j=0;j<[verse intValue];j++)
+            {
+                NSString *v =[NSString stringWithFormat:@"%i", j+1];
+                [self.verseNumbers addObject:v];
+            }
             
-            
-            NSArray *tempChapters = NSArray.new;
+           /* NSArray *tempChapters = NSArray.new;
             tempChapters = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 if ([obj1 integerValue] > [obj2 integerValue]) {
                     return (NSComparisonResult)NSOrderedDescending;
@@ -95,7 +98,7 @@
             for (int j=0;j<[tempChapters count]; j++)
             {
                 NSLog(@"name:%@   chapters: %@", tempBible.name,tempChapters[j]);
-            }
+            }*/
             //for (int i);
         }
         //self.bookTitles = [[NSMutableArray<Bible *> alloc] initWithArray: tempStore];
