@@ -12,6 +12,8 @@
 #import "Bible.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) NSString *nameKey;
 @property (strong, nonatomic) NSMutableArray<Bible *> *bookTitles;
 @end
 
@@ -57,7 +59,7 @@
      }
          
          
-     NSLog(@"%@", bible);
+     //NSLog(@"%@", bible);
     // Bible *bookTitle = Bible.new;
          
      //Bible *tempBible = Bible.new;
@@ -175,6 +177,9 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES ];
     ChaptersViewController *chapController = [[ChaptersViewController alloc] initWithStyle:UITableViewStylePlain];
     chapController.bookTitle = self.bookTitles[indexPath.row];
+    self.nameKey = NSString.new;
+    self.nameKey = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
+    chapController.nameKey = self.nameKey;
     [[self navigationController] pushViewController:chapController animated:YES];
 }
 @end

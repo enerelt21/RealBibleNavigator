@@ -56,7 +56,7 @@
         }
         
         
-        NSLog(@"%@", bible);
+        //NSLog(@"%@", bible);
         // Bible *bookTitle = Bible.new;
         
         //Bible *tempBible = Bible.new;
@@ -200,5 +200,11 @@
 }*/
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES ];
+    NSString *parse = @"olivetree://bible/%@.%@.%@";
+    NSString * urlString = [NSString stringWithFormat:parse, self.nameKey ,self.chapterNumber, self.verseNumbers[indexPath.row]];
+   // NSLog(@"%@", urlString);
+    NSURL *url = [NSURL URLWithString:urlString];
+    UIApplication *application = [UIApplication sharedApplication];
+    [application openURL:url options:@{} completionHandler:nil];
 }
 @end

@@ -58,7 +58,7 @@
         }
         
         
-        NSLog(@"%@", bible);
+        //NSLog(@"%@", bible);
         // Bible *bookTitle = Bible.new;
         
         //Bible *tempBible = Bible.new;
@@ -89,10 +89,10 @@
                 }
                 return (NSComparisonResult)NSOrderedSame;
             }];
-            for (int j=0;j<[self.chapterNumbers count]; j++)
+            /*for (int j=0;j<[self.chapterNumbers count]; j++)
             {
                 NSLog(@"name:%@   chapters: %@", tempBible.name,self.chapterNumbers[j]);
-            }
+            }*/
             //for (int i);
         }
         //self.bookTitles = [[NSMutableArray<Bible *> alloc] initWithArray: tempStore];
@@ -197,6 +197,7 @@
     VersesViewController *verseController = [[VersesViewController alloc] initWithStyle:UITableViewStylePlain];
     verseController.bookTitle = self.bookTitle;
     verseController.chapterNumber = self.chapterNumbers[indexPath.row];
+    verseController.nameKey = self.nameKey;
     [[self navigationController] pushViewController:verseController animated:YES];
 }
 @end
