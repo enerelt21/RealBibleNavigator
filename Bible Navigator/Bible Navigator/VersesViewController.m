@@ -64,7 +64,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Verses" forIndexPath:indexPath];
     
     NSString *verseNumber = self.verseNumbers[indexPath.row];
-    cell.textLabel.text = verseNumber;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@:%@", self.bookTitle.name, self.chapterNumber, verseNumber];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
@@ -74,7 +75,7 @@
     NSString * urlString = [NSString stringWithFormat:parse, self.nameKey ,self.chapterNumber, self.verseNumbers[indexPath.row]];
    // NSLog(@"%@", urlString);
     NSURL *url = [NSURL URLWithString:urlString];
-    UIApplication *application = [UIApplication sharedApplication];
+    UIApplication *application = [[UIApplication sharedApplication] autorelease];
     [application openURL:url options:@{} completionHandler:nil];
 }
 @end

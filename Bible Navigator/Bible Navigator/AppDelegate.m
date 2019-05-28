@@ -19,10 +19,10 @@
     /*ViewController *bibleTableViewController = [[ViewController alloc] initWithStyle:UITableViewStyleGrouped];
     UINavigationController *graphicsNavController = [[UINavigationController alloc] initWithRootViewController:bibleTableViewController];
     ViewController.title = @"Bible";*/
-    self.window = UIWindow.new;
+    self.window = [UIWindow.new autorelease];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:ViewController.new];
+    self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:ViewController.new] autorelease];
     
     return YES;
 }

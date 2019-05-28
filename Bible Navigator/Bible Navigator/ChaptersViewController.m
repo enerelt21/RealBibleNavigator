@@ -99,7 +99,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Numbers" forIndexPath:indexPath];
     
     NSString *chapNumber = self.chapterNumbers[indexPath.row];
-    cell.textLabel.text = chapNumber;
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.bookTitle.name, chapNumber];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

@@ -33,7 +33,7 @@
 }
 -(void) gtData{
     //Activity indicater until finishes parsing JSON
-    UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleGray];
+    UIActivityIndicatorView *act = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleGray] autorelease];
     act.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
     [self.view addSubview:act];
     [act startAnimating];
@@ -85,6 +85,7 @@
     Bible *bookTitle = self.bookTitles[indexPath.row];
     //id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
     cell.textLabel.text = bookTitle.name;
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
