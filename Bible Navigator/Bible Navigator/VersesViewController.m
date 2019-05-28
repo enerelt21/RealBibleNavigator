@@ -39,13 +39,8 @@
             }
             NSDictionary *chap = [NSDictionary.new autorelease];
             chap = [arrayResult objectForKey:@"chapters"];
-            NSString *verse = [chap objectForKey: self.chapterNumber];
-            self.verseNumbers = [NSMutableArray.new autorelease];
-            for (int j=0;j<[verse intValue];j++)
-            {
-                NSString *v =[NSString stringWithFormat:@"%i", j+1];
-                [self.verseNumbers addObject:v];
-            }
+            self.verseNumbers = [NSString.new autorelease];
+            self.verseNumbers = [chap objectForKey: self.chapterNumber];
             break;
         }
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -58,22 +53,18 @@
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.verseNumbers.count;
+    return [self.verseNumbers integerValue];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Verses" forIndexPath:indexPath];
-    
-    NSString *verseNumber = self.verseNumbers[indexPath.row];
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@:%@", self.bookTitle.name, self.chapterNumber, verseNumber];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@:%ld", self.bookTitle.name, self.chapterNumber, (long)indexPath.row + 1];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES ];
-    NSString *parse = @"olivetree://bible/%@.%@.%@";
-    NSString * urlString = [NSString stringWithFormat:parse, self.nameKey ,self.chapterNumber, self.verseNumbers[indexPath.row]];
-   // NSLog(@"%@", urlString);
+    NSString *parse = @"olivetree://bible/%@.%@.%ld";
+    NSString * urlString = [NSString stringWithFormat:parse, self.nameKey ,self.chapterNumber, (long)indexPath.row + 1];
     NSURL *url = [NSURL URLWithString:urlString];
     UIApplication *application = [[UIApplication sharedApplication] autorelease];
     [application openURL:url options:@{} completionHandler:nil];

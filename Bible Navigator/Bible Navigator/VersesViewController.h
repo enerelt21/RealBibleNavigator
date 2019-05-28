@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface VersesViewController : UITableViewController
 @property (strong, nonatomic) Bible *bookTitle;
 @property (strong, nonatomic) NSString *chapterNumber;
-@property (strong, nonatomic) NSMutableArray *verseNumbers;
+@property (strong, nonatomic) NSString *verseNumbers;
 @property (strong, nonatomic) NSString *nameKey;
 @property (strong, nonatomic) NSDictionary *bible;
 

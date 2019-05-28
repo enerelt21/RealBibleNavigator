@@ -112,12 +112,4 @@
     verseController.bible = self.bible;
     [[self navigationController] pushViewController:verseController animated:YES];
 }
-/*
--(void)dealloc
-{
-    self.bible = nil;
-    //other properties
-    [super dealloc];
-}
-*/
 @end
