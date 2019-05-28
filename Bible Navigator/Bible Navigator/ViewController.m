@@ -37,14 +37,14 @@
      [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
      //NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
      //NSLog(@"Book Information: %@", book);
-     NSError *er;
+     NSError *er = nil;
      self.bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
      if (er)
      {
      NSLog(@"The process of getting bible verses failed: %@", er);
      return;
      }
-     self.bookTitles = [NSMutableArray<Bible *> new];
+     self.bookTitles = [[NSMutableArray<Bible *> new] autorelease];
      //NSMutableArray <NSDictionary *> *tempChapters = [NSMutableArray<NSDictionary *> new];
      for (int i=0; i<[self.bible count]; i++)
      {
@@ -52,7 +52,7 @@
          NSString *temp = [NSString stringWithFormat:@"%i", i+1];
          NSDictionary *arrayResult = self.bible[temp];
 
-         Bible *tempBible = Bible.new;
+         Bible *tempBible = [Bible.new autorelease];
          tempBible.name = [arrayResult objectForKey:@"name"];
          [self.bookTitles addObject:tempBible];
      }
@@ -78,9 +78,9 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES ];
-    ChaptersViewController *chapController = [[ChaptersViewController alloc] initWithStyle:UITableViewStylePlain];
+    ChaptersViewController *chapController = [[[ChaptersViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     chapController.bookTitle = self.bookTitles[indexPath.row];
-    self.nameKey = NSString.new;
+    self.nameKey = [NSString.new autorelease];
     self.nameKey = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     chapController.nameKey = self.nameKey;
     chapController.bible = self.bible;

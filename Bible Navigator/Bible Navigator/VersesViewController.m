@@ -30,17 +30,17 @@
             NSString *temp = [NSString stringWithFormat:@"%i", i+1];
             NSDictionary *arrayResult = self.bible[temp];
             
-            Bible *tempBible = Bible.new;
+            Bible *tempBible = [Bible.new autorelease];
             tempBible.name = [arrayResult objectForKey:@"name"];
             if (![tempBible.name isEqualToString:self.bookTitle.name])
             {
                 //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
                 continue;
             }
-            NSDictionary *chap = NSDictionary.new;
+            NSDictionary *chap = [NSDictionary.new autorelease];
             chap = [arrayResult objectForKey:@"chapters"];
             NSString *verse = [chap objectForKey: self.chapterNumber];
-            self.verseNumbers = NSMutableArray.new;
+            self.verseNumbers = [NSMutableArray.new autorelease];
             for (int j=0;j<[verse intValue];j++)
             {
                 NSString *v =[NSString stringWithFormat:@"%i", j+1];

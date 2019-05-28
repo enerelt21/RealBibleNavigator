@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.chapterNumbers = NSMutableArray.new;
+    self.chapterNumbers = [NSMutableArray.new autorelease];
     [self gtData];
 
     self.navigationItem.title = @"Chapters";
@@ -61,16 +61,16 @@
             NSString *temp = [NSString stringWithFormat:@"%i", i+1];
             NSDictionary *arrayResult = self.bible[temp];
             
-            Bible *tempBible = Bible.new;
+            Bible *tempBible = [Bible.new autorelease];
             tempBible.name = [arrayResult objectForKey:@"name"];
             if (![tempBible.name isEqualToString:self.bookTitle.name])
             {
                 //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
                 continue;
             }
-            NSDictionary *chap = NSDictionary.new;
+            NSDictionary *chap = [NSDictionary.new autorelease];
             chap = [arrayResult objectForKey:@"chapters"];
-            self.chapterNumbers = NSArray.new;
+            self.chapterNumbers = [NSArray.new autorelease];
             self.chapterNumbers = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
                 if ([obj1 integerValue] > [obj2 integerValue]) {
                     return (NSComparisonResult)NSOrderedDescending;
@@ -104,11 +104,19 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [tableView deselectRowAtIndexPath:indexPath animated:YES ];
-    VersesViewController *verseController = [[VersesViewController alloc] initWithStyle:UITableViewStylePlain];
+    VersesViewController *verseController = [[[VersesViewController alloc] initWithStyle:UITableViewStylePlain] autorelease];
     verseController.bookTitle = self.bookTitle;
     verseController.chapterNumber = self.chapterNumbers[indexPath.row];
     verseController.nameKey = self.nameKey;
     verseController.bible = self.bible;
     [[self navigationController] pushViewController:verseController animated:YES];
 }
+/*
+-(void)dealloc
+{
+    self.bible = nil;
+    //other properties
+    [super dealloc];
+}
+*/
 @end

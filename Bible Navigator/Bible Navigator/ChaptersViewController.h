@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "Bible.h"
-NS_ASSUME_NONNULL_BEGIN
 
 @interface ChaptersViewController : UITableViewController
 @property (strong, nonatomic) Bible *bookTitle;
@@ -17,4 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSDictionary *bible;
 @end
 
-NS_ASSUME_NONNULL_END
