@@ -32,6 +32,12 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Titles"];
 }
 -(void) gtData{
+    //Activity indicater until finishes parsing JSON
+    UIActivityIndicatorView *act = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle: UIActivityIndicatorViewStyleGray];
+    act.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, [[UIScreen mainScreen] bounds].size.height/2);
+    [self.view addSubview:act];
+    [act startAnimating];
+    
      NSLog(@"Getting the names");
      NSURL *url = [NSURL URLWithString: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
      [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -44,6 +50,12 @@
      NSLog(@"The process of getting bible verses failed: %@", er);
      return;
      }
+         dispatch_async(dispatch_get_main_queue(), ^{
+             
+             //after your server call or parsing or something you can call this to stop animating
+             
+             [act stopAnimating];
+         });
      self.bookTitles = [[NSMutableArray<Bible *> new] autorelease];
      //NSMutableArray <NSDictionary *> *tempChapters = [NSMutableArray<NSDictionary *> new];
      for (int i=0; i<[self.bible count]; i++)
