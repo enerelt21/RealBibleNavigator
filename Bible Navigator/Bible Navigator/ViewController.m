@@ -15,6 +15,7 @@
 
 @property (strong, nonatomic) NSString *nameKey;
 @property (strong, nonatomic) NSMutableArray<Bible *> *bookTitles;
+@property (strong, nonatomic) NSDictionary *bible;
 @end
 
 @implementation ViewController
@@ -37,7 +38,7 @@
      //NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
      //NSLog(@"Book Information: %@", book);
      NSError *er;
-     NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
+     self.bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
      if (er)
      {
      NSLog(@"The process of getting bible verses failed: %@", er);
@@ -45,11 +46,11 @@
      }
      self.bookTitles = [NSMutableArray<Bible *> new];
      //NSMutableArray <NSDictionary *> *tempChapters = [NSMutableArray<NSDictionary *> new];
-     for (int i=0; i<[bible count]; i++)
+     for (int i=0; i<[self.bible count]; i++)
      {
          //NSMutableArray *tempChapters = [NSMutableArray new];
          NSString *temp = [NSString stringWithFormat:@"%i", i+1];
-         NSDictionary *arrayResult = bible[temp];
+         NSDictionary *arrayResult = self.bible[temp];
 
          Bible *tempBible = Bible.new;
          tempBible.name = [arrayResult objectForKey:@"name"];
@@ -82,6 +83,7 @@
     self.nameKey = NSString.new;
     self.nameKey = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     chapController.nameKey = self.nameKey;
+    chapController.bible = self.bible;
     [[self navigationController] pushViewController:chapController animated:YES];
 }
 @end

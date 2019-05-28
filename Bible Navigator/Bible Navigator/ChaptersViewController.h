@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) Bible *bookTitle;
 @property (strong, nonatomic) NSArray *chapterNumbers;
 @property (strong, nonatomic) NSString *nameKey;
-
+@property (strong, nonatomic) NSDictionary *bible;
 @end
 
 NS_ASSUME_NONNULL_END

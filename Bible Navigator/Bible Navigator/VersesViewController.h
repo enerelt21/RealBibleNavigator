@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSString *chapterNumber;
 @property (strong, nonatomic) NSMutableArray *verseNumbers;
 @property (strong, nonatomic) NSString *nameKey;
+@property (strong, nonatomic) NSDictionary *bible;
 
 @end
 

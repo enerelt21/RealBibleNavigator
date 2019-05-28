@@ -11,10 +11,37 @@
 #import "VersesViewController.h"
 
 @interface ChaptersViewController ()
-
+/*
+-(NSArray *) mergeSort: (NSArray *) tempArray;
+-(NSArray *) merge: (NSArray *) left: (NSArray *)right;*/
 @end
 
 @implementation ChaptersViewController
+/*
+-(NSArray *) mergeSort: (NSArray *) tempArray
+{
+    if (tempArray.count < 2)
+        return tempArray;
+    long mid = tempArray.count / 2;
+    NSArray *left = [tempArray subarrayWithRange:NSMakeRange(0, mid)];
+    NSArray *right = [tempArray subarrayWithRange:NSMakeRange(mid, tempArray.count - mid)];
+    NSArray *finalArray = [self merge: [self mergeSort:left] : [self mergeSort:right]];
+    return finalArray;
+}
+-(NSArray *) merge: (NSArray *) arrayLeft: (NSArray *)arrayRight
+{
+    NSMutableArray *finalArray = NSMutableArray.new;
+    int i = 0, j = 0;
+    while (i < arrayLeft.count && j < arrayRight.count)
+        [finalArray addObject:([arrayLeft[i] intValue] < [arrayRight[j] intValue]) ? arrayLeft[i++] : arrayRight[j++]];
+    while (i < arrayLeft.count)
+        [finalArray addObject:arrayLeft[i++]];
+    while (j < arrayRight.count)
+        [finalArray addObject:arrayRight[j++]];
+    
+    return finalArray;
+    
+}*/
 -(IBAction)gobackToThisChapterViewController:(UIStoryboardSegue *)sender{
 }
 - (void)viewDidLoad {
@@ -28,22 +55,11 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Numbers"];
 }
 -(void) gtData{
-    NSLog(@"Getting the names");
-    NSURL *url = [NSURL URLWithString: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
-    [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-
-        NSError *er;
-        NSDictionary *bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
-        if (er)
-        {
-            NSLog(@"The process of getting bible verses failed: %@", er);
-            return;
-        }
-        for (int i=0; i<[bible count]; i++)
+    for (int i=0; i<[self.bible count]; i++)
         {
             //NSMutableArray *tempChapters = [NSMutableArray new];
             NSString *temp = [NSString stringWithFormat:@"%i", i+1];
-            NSDictionary *arrayResult = bible[temp];
+            NSDictionary *arrayResult = self.bible[temp];
             
             Bible *tempBible = Bible.new;
             tempBible.name = [arrayResult objectForKey:@"name"];
@@ -70,7 +86,7 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-    }] resume];
+  //  }] resume];
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -92,6 +108,7 @@
     verseController.bookTitle = self.bookTitle;
     verseController.chapterNumber = self.chapterNumbers[indexPath.row];
     verseController.nameKey = self.nameKey;
+    verseController.bible = self.bible;
     [[self navigationController] pushViewController:verseController animated:YES];
 }
 @end
