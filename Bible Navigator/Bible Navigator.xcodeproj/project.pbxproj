@@ -10,6 +10,14 @@
 		530D4CB5229736850099C030 /* ChaptersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D4CB4229736850099C030 /* ChaptersViewController.m */; };
 		530D4CB8229736CD0099C030 /* VersesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 530D4CB7229736CD0099C030 /* VersesViewController.m */; };
 		530D4CC02298B99F0099C030 /* loading sccreen logo.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 530D4CBF2298B99F0099C030 /* loading sccreen logo.jpg */; };
+		532FC452229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44A229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png */; };
+		532FC453229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44B229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png */; };
+		532FC454229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44C229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png */; };
+		532FC455229ED40600834A60 /* icons8-holy-bible-filled-48 (5).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44D229ED40600834A60 /* icons8-holy-bible-filled-48 (5).png */; };
+		532FC456229ED40600834A60 /* icons8-holy-bible-filled-48 (7).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44E229ED40600834A60 /* icons8-holy-bible-filled-48 (7).png */; };
+		532FC457229ED40600834A60 /* icons8-holy-bible-filled-48 (2).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC44F229ED40600834A60 /* icons8-holy-bible-filled-48 (2).png */; };
+		532FC458229ED40600834A60 /* icons8-holy-bible-filled-48 (6).png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC450229ED40600834A60 /* icons8-holy-bible-filled-48 (6).png */; };
+		532FC459229ED40600834A60 /* icons8-holy-bible-filled-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC451229ED40600834A60 /* icons8-holy-bible-filled-48.png */; };
 		537DBC472294A3DB0068376C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC462294A3DB0068376C /* AppDelegate.m */; };
 		537DBC4A2294A3DB0068376C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC492294A3DB0068376C /* ViewController.m */; };
 		537DBC4D2294A3DB0068376C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537DBC4B2294A3DB0068376C /* Main.storyboard */; };
@@ -45,6 +53,14 @@
 		530D4CB6229736CD0099C030 /* VersesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersesViewController.h; sourceTree = "<group>"; };
 		530D4CB7229736CD0099C030 /* VersesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersesViewController.m; sourceTree = "<group>"; };
 		530D4CBF2298B99F0099C030 /* loading sccreen logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "loading sccreen logo.jpg"; path = "../../../loading sccreen logo.jpg"; sourceTree = "<group>"; };
+		532FC44A229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (4).png"; sourceTree = "<group>"; };
+		532FC44B229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (3).png"; sourceTree = "<group>"; };
+		532FC44C229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (1).png"; sourceTree = "<group>"; };
+		532FC44D229ED40600834A60 /* icons8-holy-bible-filled-48 (5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (5).png"; sourceTree = "<group>"; };
+		532FC44E229ED40600834A60 /* icons8-holy-bible-filled-48 (7).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (7).png"; sourceTree = "<group>"; };
+		532FC44F229ED40600834A60 /* icons8-holy-bible-filled-48 (2).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (2).png"; sourceTree = "<group>"; };
+		532FC450229ED40600834A60 /* icons8-holy-bible-filled-48 (6).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (6).png"; sourceTree = "<group>"; };
+		532FC451229ED40600834A60 /* icons8-holy-bible-filled-48.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48.png"; sourceTree = "<group>"; };
 		537DBC422294A3DB0068376C /* Bible Navigator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bible Navigator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		537DBC452294A3DB0068376C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		537DBC462294A3DB0068376C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,7 +79,7 @@
 		537DBC6B2294A3DC0068376C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		537DBC772294AE2A0068376C /* Bible.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bible.h; sourceTree = "<group>"; };
 		537DBC782294AE2A0068376C /* Bible.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Bible.m; sourceTree = "<group>"; };
-		537DBC7F2294B2F00068376C /* BibleJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = BibleJson.json; path = ../../../BibleJson.json; sourceTree = "<group>"; };
+		537DBC7F2294B2F00068376C /* BibleJson.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BibleJson.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +107,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		532FC449229ED37C00834A60 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				532FC44C229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png */,
+				532FC44F229ED40600834A60 /* icons8-holy-bible-filled-48 (2).png */,
+				532FC44B229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png */,
+				532FC44A229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png */,
+				532FC44D229ED40600834A60 /* icons8-holy-bible-filled-48 (5).png */,
+				532FC450229ED40600834A60 /* icons8-holy-bible-filled-48 (6).png */,
+				532FC44E229ED40600834A60 /* icons8-holy-bible-filled-48 (7).png */,
+				532FC451229ED40600834A60 /* icons8-holy-bible-filled-48.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		537DBC392294A3DB0068376C = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +145,7 @@
 		537DBC442294A3DB0068376C /* Bible Navigator */ = {
 			isa = PBXGroup;
 			children = (
+				532FC449229ED37C00834A60 /* Images */,
 				537DBC452294A3DB0068376C /* AppDelegate.h */,
 				537DBC462294A3DB0068376C /* AppDelegate.m */,
 				537DBC4B2294A3DB0068376C /* Main.storyboard */,
@@ -257,9 +289,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				537DBC522294A3DC0068376C /* LaunchScreen.storyboard in Resources */,
+				532FC457229ED40600834A60 /* icons8-holy-bible-filled-48 (2).png in Resources */,
+				532FC455229ED40600834A60 /* icons8-holy-bible-filled-48 (5).png in Resources */,
+				532FC453229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png in Resources */,
+				532FC452229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png in Resources */,
+				532FC456229ED40600834A60 /* icons8-holy-bible-filled-48 (7).png in Resources */,
 				530D4CC02298B99F0099C030 /* loading sccreen logo.jpg in Resources */,
+				532FC459229ED40600834A60 /* icons8-holy-bible-filled-48.png in Resources */,
+				532FC458229ED40600834A60 /* icons8-holy-bible-filled-48 (6).png in Resources */,
 				537DBC4F2294A3DC0068376C /* Assets.xcassets in Resources */,
 				537DBC802294B2F10068376C /* BibleJson.json in Resources */,
+				532FC454229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png in Resources */,
 				537DBC4D2294A3DB0068376C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
