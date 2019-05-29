@@ -66,7 +66,7 @@
     NSString *parse = @"olivetree://bible/%@.%@.%ld";
     NSString * urlString = [NSString stringWithFormat:parse, self.nameKey ,self.chapterNumber, (long)indexPath.row + 1];
     NSURL *url = [NSURL URLWithString:urlString];
-    UIApplication *application = [[UIApplication sharedApplication] autorelease];
+    UIApplication *application = [UIApplication sharedApplication];
     [application openURL:url options:@{} completionHandler:nil];
 }
 @end
