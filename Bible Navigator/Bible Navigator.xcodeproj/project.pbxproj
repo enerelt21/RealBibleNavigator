@@ -52,7 +52,7 @@
 		530D4CB4229736850099C030 /* ChaptersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChaptersViewController.m; sourceTree = "<group>"; };
 		530D4CB6229736CD0099C030 /* VersesViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VersesViewController.h; sourceTree = "<group>"; };
 		530D4CB7229736CD0099C030 /* VersesViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VersesViewController.m; sourceTree = "<group>"; };
-		530D4CBF2298B99F0099C030 /* loading sccreen logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "loading sccreen logo.jpg"; path = "../../../loading sccreen logo.jpg"; sourceTree = "<group>"; };
+		530D4CBF2298B99F0099C030 /* loading sccreen logo.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "loading sccreen logo.jpg"; sourceTree = "<group>"; };
 		532FC44A229ED40600834A60 /* icons8-holy-bible-filled-48 (4).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (4).png"; sourceTree = "<group>"; };
 		532FC44B229ED40600834A60 /* icons8-holy-bible-filled-48 (3).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (3).png"; sourceTree = "<group>"; };
 		532FC44C229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icons8-holy-bible-filled-48 (1).png"; sourceTree = "<group>"; };
