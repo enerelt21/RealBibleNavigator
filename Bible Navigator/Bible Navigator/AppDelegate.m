@@ -21,8 +21,9 @@
     ViewController.title = @"Bible";*/
     self.window = [UIWindow.new autorelease];
     [self.window makeKeyAndVisible];
+    ViewController *view = [ViewController.new autorelease];
+    self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:view] autorelease];
     
-    self.window.rootViewController = [[[UINavigationController alloc] initWithRootViewController:ViewController.new] autorelease];
     
     return YES;
 }

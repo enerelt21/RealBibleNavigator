@@ -21,32 +21,21 @@
     
     self.navigationItem.title = @"Verses";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Verses"];
+    //UITableViewCell *tcell = [UITableViewCell.new autorelease];
+    //[self.tableView autorelease];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Verses"] autorelease];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:titles];
+    //[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Verses"];
 }
 -(void) gtData{
-       /* for (int i=0; i<[self.bible count]; i++)
-        {
-            //NSMutableArray *tempChapters = [NSMutableArray new];
-            NSString *temp = [NSString stringWithFormat:@"%i", i+1];
-            NSDictionary *arrayResult = self.bible[temp];
-            
-            Bible *tempBible = [Bible.new autorelease];
-            tempBible.name = [arrayResult objectForKey:@"name"];
-            if (![tempBible.name isEqualToString:self.bookTitle.name])
-            {
-                //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
-                continue;
-            }*/
             NSDictionary *chap = [NSDictionary.new autorelease];
             chap = [self.bible objectForKey:@"chapters"];
             self.verseNumbers = [NSString.new autorelease];
             self.verseNumbers = [chap objectForKey: self.chapterNumber];
-        //    break;
-       // }
+
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-   // }] resume];
     
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -56,7 +45,9 @@
     return [self.verseNumbers integerValue];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Verses" forIndexPath:indexPath];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Verses"] autorelease];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: titles forIndexPath:indexPath];
+    //cell.textLabel.text = [NSString.new autorelease];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@:%ld", self.bookTitle.name, self.chapterNumber, (long)indexPath.row + 1];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
@@ -68,5 +59,16 @@
     NSURL *url = [NSURL URLWithString:urlString];
     UIApplication *application = [UIApplication sharedApplication];
     [application openURL:url options:@{} completionHandler:nil];
+}
+-(void)dealloc
+{
+    //self.bible = nil;
+    //other properties
+    self.bookTitle = nil;
+    self.chapterNumber = nil;
+    self.verseNumbers = nil;
+    self.nameKey = nil;
+    self.bible = nil;
+    [super dealloc];
 }
 @end

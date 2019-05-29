@@ -19,8 +19,6 @@
 @end
 
 @implementation ViewController
--(IBAction)gobackToThisViewController:(UIStoryboardSegue *)sender{
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -29,7 +27,10 @@
 
     self.navigationItem.title = @"Books";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Titles"];
+    //UITableViewCell *tcell = [UITableViewCell.new autorelease];
+    //[self.tableView autorelease];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Titles"] autorelease];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:titles];
 }
 -(void) gtData{
     //Activity indicater until finishes parsing JSON
@@ -44,6 +45,7 @@
      //NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
      //NSLog(@"Book Information: %@", book);
      NSError *er = nil;
+     self.bible = [NSDictionary.new autorelease];
      self.bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
      if (er)
      {
@@ -80,12 +82,14 @@
     //return 67;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Titles" forIndexPath:indexPath];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Titles"] autorelease];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: titles forIndexPath:indexPath];
     
     Bible *bookTitle = self.bookTitles[indexPath.row];
     //id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
     cell.textLabel.text = bookTitle.name;
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
@@ -99,5 +103,13 @@
     NSString *temp = [NSString stringWithFormat:@"%li", indexPath.row + 1];
     chapController.bible = self.bible[temp];
     [[self navigationController] pushViewController:chapController animated:YES];
+}
+-(void)dealloc
+{
+    //self.bible = nil;
+    self.nameKey = nil;
+    self.bookTitles = nil;
+    self.bible = nil;
+    [super dealloc];
 }
 @end

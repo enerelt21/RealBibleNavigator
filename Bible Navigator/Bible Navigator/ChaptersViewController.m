@@ -17,31 +17,6 @@
 @end
 
 @implementation ChaptersViewController
-/*
--(NSArray *) mergeSort: (NSArray *) tempArray
-{
-    if (tempArray.count < 2)
-        return tempArray;
-    long mid = tempArray.count / 2;
-    NSArray *left = [tempArray subarrayWithRange:NSMakeRange(0, mid)];
-    NSArray *right = [tempArray subarrayWithRange:NSMakeRange(mid, tempArray.count - mid)];
-    NSArray *finalArray = [self merge: [self mergeSort:left] : [self mergeSort:right]];
-    return finalArray;
-}
--(NSArray *) merge: (NSArray *) arrayLeft: (NSArray *)arrayRight
-{
-    NSMutableArray *finalArray = NSMutableArray.new;
-    int i = 0, j = 0;
-    while (i < arrayLeft.count && j < arrayRight.count)
-        [finalArray addObject:([arrayLeft[i] intValue] < [arrayRight[j] intValue]) ? arrayLeft[i++] : arrayRight[j++]];
-    while (i < arrayLeft.count)
-        [finalArray addObject:arrayLeft[i++]];
-    while (j < arrayRight.count)
-        [finalArray addObject:arrayRight[j++]];
-    
-    return finalArray;
-    
-}*/
 -(IBAction)gobackToThisChapterViewController:(UIStoryboardSegue *)sender{
 }
 - (void)viewDidLoad {
@@ -52,7 +27,11 @@
 
     self.navigationItem.title = @"Chapters";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Numbers"];
+    //UITableViewCell *tcell = [UITableViewCell.new autorelease];
+    //[self.tableView autorelease];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Chapters"] autorelease];
+    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:titles];
+    //[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Numbers"];
 }
 -(void) gtData{
 
@@ -83,11 +62,14 @@
     return self.chapterNumbers.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: @"Numbers" forIndexPath:indexPath];
+    NSString *titles = [[[NSString alloc] initWithFormat:@"Chapters"] autorelease];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: titles forIndexPath:indexPath];
     
     NSString *chapNumber = self.chapterNumbers[indexPath.row];
+    //cell.textLabel.text = [NSString.new autorelease];
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.bookTitle.name, chapNumber];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    [titles release];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -98,5 +80,13 @@
     verseController.nameKey = self.nameKey;
     verseController.bible = self.bible;
     [[self navigationController] pushViewController:verseController animated:YES];
+}
+-(void)dealloc
+{
+    self.bookTitle = nil;
+    self.chapterNumbers = nil;
+    self.nameKey = nil;
+    self.bible = nil;
+    [super dealloc];
 }
 @end

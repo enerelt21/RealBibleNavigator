@@ -10,7 +10,6 @@
 #import "Bible.h"
 #import "ChaptersViewController.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface VersesViewController : UITableViewController
 @property (strong, nonatomic) Bible *bookTitle;
@@ -21,4 +20,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END
