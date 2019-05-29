@@ -20,7 +20,6 @@
 		532FC459229ED40600834A60 /* icons8-holy-bible-filled-48.png in Resources */ = {isa = PBXBuildFile; fileRef = 532FC451229ED40600834A60 /* icons8-holy-bible-filled-48.png */; };
 		537DBC472294A3DB0068376C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC462294A3DB0068376C /* AppDelegate.m */; };
 		537DBC4A2294A3DB0068376C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC492294A3DB0068376C /* ViewController.m */; };
-		537DBC4D2294A3DB0068376C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537DBC4B2294A3DB0068376C /* Main.storyboard */; };
 		537DBC4F2294A3DC0068376C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 537DBC4E2294A3DC0068376C /* Assets.xcassets */; };
 		537DBC522294A3DC0068376C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 537DBC502294A3DC0068376C /* LaunchScreen.storyboard */; };
 		537DBC552294A3DC0068376C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 537DBC542294A3DC0068376C /* main.m */; };
@@ -66,7 +65,6 @@
 		537DBC462294A3DB0068376C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		537DBC482294A3DB0068376C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		537DBC492294A3DB0068376C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		537DBC4C2294A3DB0068376C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		537DBC4E2294A3DC0068376C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		537DBC512294A3DC0068376C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		537DBC532294A3DC0068376C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -148,7 +146,6 @@
 				532FC449229ED37C00834A60 /* Images */,
 				537DBC452294A3DB0068376C /* AppDelegate.h */,
 				537DBC462294A3DB0068376C /* AppDelegate.m */,
-				537DBC4B2294A3DB0068376C /* Main.storyboard */,
 				537DBC482294A3DB0068376C /* ViewController.h */,
 				537DBC492294A3DB0068376C /* ViewController.m */,
 				530D4CB3229736850099C030 /* ChaptersViewController.h */,
@@ -300,7 +297,6 @@
 				537DBC4F2294A3DC0068376C /* Assets.xcassets in Resources */,
 				537DBC802294B2F10068376C /* BibleJson.json in Resources */,
 				532FC454229ED40600834A60 /* icons8-holy-bible-filled-48 (1).png in Resources */,
-				537DBC4D2294A3DB0068376C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,14 +362,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		537DBC4B2294A3DB0068376C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				537DBC4C2294A3DB0068376C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		537DBC502294A3DC0068376C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

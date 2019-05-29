@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 //#import "Chapters.h"
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface Bible : NSObject
 
@@ -17,4 +16,3 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-NS_ASSUME_NONNULL_END

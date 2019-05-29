@@ -27,17 +27,13 @@
 
     self.navigationItem.title = @"Chapters";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    //UITableViewCell *tcell = [UITableViewCell.new autorelease];
-    //[self.tableView autorelease];
+
     NSString *titles = [[[NSString alloc] initWithFormat:@"Chapters"] autorelease];
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:titles];
-    //[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Numbers"];
 }
 -(void) gtData{
 
-        NSDictionary *chap = [NSDictionary.new autorelease];
-        chap = [self.bible objectForKey:@"chapters"];
-
+        NSDictionary *chap = [self.bible objectForKey:@"chapters"];
         self.chapterNumbers = [NSArray.new autorelease];
         self.chapterNumbers = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
         if ([obj1 integerValue] > [obj2 integerValue]) {
@@ -52,8 +48,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-  //  }] resume];
-    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
@@ -66,10 +60,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: titles forIndexPath:indexPath];
     
     NSString *chapNumber = self.chapterNumbers[indexPath.row];
-    //cell.textLabel.text = [NSString.new autorelease];
+
     cell.textLabel.text = [NSString stringWithFormat:@"%@ %@", self.bookTitle.name, chapNumber];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    [titles release];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

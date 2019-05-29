@@ -9,5 +9,8 @@
 #import "Bible.h"
 
 @implementation Bible
-
+-(void)dealloc{
+    self.name = nil;
+    [super dealloc];
+}
 @end

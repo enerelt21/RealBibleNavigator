@@ -22,13 +22,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //self.bookTitles = [NSMutableArray<Bible *> new];
     [self gtData];
 
     self.navigationItem.title = @"Books";
     self.navigationController.navigationBar.prefersLargeTitles = YES;
-    //UITableViewCell *tcell = [UITableViewCell.new autorelease];
-    //[self.tableView autorelease];
     NSString *titles = [[[NSString alloc] initWithFormat:@"Titles"] autorelease];
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:titles];
 }
@@ -42,8 +39,6 @@
      NSLog(@"Getting the names");
      NSURL *url = [NSURL URLWithString: @"https://www.dropbox.com/s/y24kzlvu1lh5f12/BibleJson.json?dl=1"];
      [[NSURLSession.sharedSession dataTaskWithURL: url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-     //NSString *book = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-     //NSLog(@"Book Information: %@", book);
      NSError *er = nil;
      self.bible = [NSDictionary.new autorelease];
      self.bible = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&er];
@@ -53,13 +48,9 @@
      return;
      }
          dispatch_async(dispatch_get_main_queue(), ^{
-             
-             //after your server call or parsing or something you can call this to stop animating
-             
              [act stopAnimating];
          });
      self.bookTitles = [[NSMutableArray<Bible *> new] autorelease];
-     //NSMutableArray <NSDictionary *> *tempChapters = [NSMutableArray<NSDictionary *> new];
      for (int i=0; i<[self.bible count]; i++)
      {
          //NSMutableArray *tempChapters = [NSMutableArray new];
@@ -73,9 +64,7 @@
          dispatch_async(dispatch_get_main_queue(), ^{
              [self.tableView reloadData];
          });
-    
      }] resume];
-    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.bookTitles.count;
@@ -86,11 +75,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: titles forIndexPath:indexPath];
     
     Bible *bookTitle = self.bookTitles[indexPath.row];
-    //id section = [self.tableViewData objectForKey:[NSString stringWithFormat:@"Section%ld", indexPath.section + 1]];
     cell.textLabel.text = bookTitle.name;
+
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    // NSLog(@"%ld",(long)indexPath.row);
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
