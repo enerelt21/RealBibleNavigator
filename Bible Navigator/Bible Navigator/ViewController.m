@@ -96,7 +96,8 @@
     self.nameKey = [NSString.new autorelease];
     self.nameKey = [NSString stringWithFormat:@"%ld", (long)indexPath.row + 1];
     chapController.nameKey = self.nameKey;
-    chapController.bible = self.bible;
+    NSString *temp = [NSString stringWithFormat:@"%li", indexPath.row + 1];
+    chapController.bible = self.bible[temp];
     [[self navigationController] pushViewController:chapController animated:YES];
 }
 @end

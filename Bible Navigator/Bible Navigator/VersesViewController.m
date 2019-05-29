@@ -24,7 +24,7 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Verses"];
 }
 -(void) gtData{
-        for (int i=0; i<[self.bible count]; i++)
+       /* for (int i=0; i<[self.bible count]; i++)
         {
             //NSMutableArray *tempChapters = [NSMutableArray new];
             NSString *temp = [NSString stringWithFormat:@"%i", i+1];
@@ -36,13 +36,13 @@
             {
                 //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
                 continue;
-            }
+            }*/
             NSDictionary *chap = [NSDictionary.new autorelease];
-            chap = [arrayResult objectForKey:@"chapters"];
+            chap = [self.bible objectForKey:@"chapters"];
             self.verseNumbers = [NSString.new autorelease];
             self.verseNumbers = [chap objectForKey: self.chapterNumber];
-            break;
-        }
+        //    break;
+       // }
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });

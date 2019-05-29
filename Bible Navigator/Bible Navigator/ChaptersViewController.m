@@ -55,34 +55,21 @@
     [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Numbers"];
 }
 -(void) gtData{
-    for (int i=0; i<[self.bible count]; i++)
-        {
-            //NSMutableArray *tempChapters = [NSMutableArray new];
-            NSString *temp = [NSString stringWithFormat:@"%i", i+1];
-            NSDictionary *arrayResult = self.bible[temp];
-            
-            Bible *tempBible = [Bible.new autorelease];
-            tempBible.name = [arrayResult objectForKey:@"name"];
-            if (![tempBible.name isEqualToString:self.bookTitle.name])
-            {
-                //NSLog(@"%@   %@", tempBible.name, self.bookTitle.name);
-                continue;
-            }
-            NSDictionary *chap = [NSDictionary.new autorelease];
-            chap = [arrayResult objectForKey:@"chapters"];
-            self.chapterNumbers = [NSArray.new autorelease];
-            self.chapterNumbers = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
-                if ([obj1 integerValue] > [obj2 integerValue]) {
-                    return (NSComparisonResult)NSOrderedDescending;
-                }
+
+        NSDictionary *chap = [NSDictionary.new autorelease];
+        chap = [self.bible objectForKey:@"chapters"];
+
+        self.chapterNumbers = [NSArray.new autorelease];
+        self.chapterNumbers = [[chap allKeys] sortedArrayUsingComparator:^NSComparisonResult(id  _Nonnull obj1, id  _Nonnull obj2) {
+        if ([obj1 integerValue] > [obj2 integerValue]) {
+            return (NSComparisonResult)NSOrderedDescending;
+         }
                 
-                if ([obj1 integerValue] < [obj2 integerValue]) {
-                    return (NSComparisonResult)NSOrderedAscending;
-                }
-                return (NSComparisonResult)NSOrderedSame;
-            }];
-            break;
-        }
+         if ([obj1 integerValue] < [obj2 integerValue]) {
+             return (NSComparisonResult)NSOrderedAscending;
+         }
+          return (NSComparisonResult)NSOrderedSame;
+         }];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
